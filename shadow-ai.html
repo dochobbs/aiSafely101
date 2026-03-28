@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadow AI | AI Safely 101</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-badge">AI Safely 101</span>
+        <span class="nav-title">A Practical Guide to Using AI Tools Responsibly</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Topics</a>
+        <div id="deployment-eac8a421-3c54-4717-bbef-54bb81b54243" class="nav-chatbot"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <article class="content">
+
+      <header class="unit-header">
+        <span class="unit-label phase-1">FOUNDATIONS</span>
+        <h1 class="unit-title">Shadow AI — The Risk You Can't See</h1>
+        <p class="unit-subtitle">
+          Your team is almost certainly already using AI tools you don't know about.
+        </p>
+        <div class="unit-meta">
+          <span class="unit-meta-item"><i data-lucide="clock"></i> ~12 min read</span>
+          <span class="unit-meta-item"><i data-lucide="book-open"></i> 5 readings</span>
+          <span class="unit-meta-item"><i data-lucide="headphones"></i> 2 podcasts</span>
+        </div>
+      </header>
+
+      <h2>We Get It — These Tools Are Incredible</h2>
+
+      <p>
+        Let's start with something important: if you've been using AI tools to draft
+        notes, summarize articles, brainstorm treatment approaches, or get through your
+        inbox faster — that makes sense. These tools are genuinely useful. A physician
+        who uses Claude to help compose a thoughtful response to a patient, an MA who
+        uses ChatGPT to decode an insurance denial, a billing specialist who uses AI
+        to catch coding errors — these are people trying to do better work.
+      </p>
+
+      <p>
+        The problem isn't the impulse. The problem is that many organizations haven't
+        provided approved tools — or even clear guidance — leaving their teams to figure
+        it out alone. When there's no sanctioned option, people find unsanctioned ones.
+        That's human nature, not malice.
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">This Isn't About Blame</div>
+        <p class="mb-0">
+          If you've been using a consumer AI tool at work because your organization
+          hasn't provided an alternative — you're not alone, and this guide isn't here
+          to make you feel bad. It's here to help you understand the risks so you can
+          make informed choices and, ideally, advocate for your organization to provide
+          safe, approved tools.
+        </p>
+      </div>
+
+      <h2>The Data on Shadow AI</h2>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">The Weekend Test</div>
+        <p>
+          A 2025 study by Gener8 found that GenAI usage drops 13% on weekends, with
+          total visits falling 23%. Adults aged 25–34 see a 28% weekend decline.
+        </p>
+        <p class="mb-0">
+          People are using these tools primarily at work — and many of them are using
+          consumer tools without their organization's knowledge or approval.
+        </p>
+      </div>
+
+      <p>
+        Shadow AI usage has surged over <strong>200%</strong> in high-stakes sectors
+        including healthcare, manufacturing, and financial services. According to
+        IBM's 2025 Cost of Data Breach Report, AI-associated breaches cost organizations
+        more than <strong>$650,000 per incident</strong>. In one documented case,
+        developers at a healthcare startup were found using ChatGPT to debug code
+        containing patient data examples — a potential <strong>$3.2 million fine</strong>.
+      </p>
+
+      <p>
+        Of ChatGPT's 800+ million regular users, <strong>1 in 4</strong> submits a
+        healthcare-related prompt every week. About 40 million people use it
+        <em>daily</em> for health questions. More than <strong>60% of workers</strong>
+        rely on personal, unmanaged AI tools rather than enterprise-approved ones —
+        yet when organizations provide approved AI tools,
+        <strong>unauthorized use drops 89%</strong>.
+      </p>
+
+      <p>
+        The scale of AI use in healthcare is already massive. The question isn't
+        whether your team is using AI — it's whether they're using it safely.
+      </p>
+
+      <h2>Approved vs. Unapproved Tools</h2>
+
+      <p>
+        Every organization should maintain a clear list of approved AI tools. If yours
+        doesn't have one, that's a red flag — not permission to use whatever you want.
+      </p>
+
+      <div class="concepts-grid">
+        <div class="concept-card">
+          <div class="concept-icon"><i data-lucide="check-circle"></i></div>
+          <div class="concept-name">Approved</div>
+          <div class="concept-desc">Organization has vetted the tool, signed a BAA if needed, and trained staff</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-icon"><i data-lucide="alert-circle"></i></div>
+          <div class="concept-name">Conditionally Approved</div>
+          <div class="concept-desc">OK for non-sensitive work only (marketing copy, not patient communications)</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-icon"><i data-lucide="x-circle"></i></div>
+          <div class="concept-name">Unapproved</div>
+          <div class="concept-desc">No vetting, no BAA, not permitted for any work involving sensitive data</div>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">Ask Before You Paste</div>
+        <p class="mb-0">
+          Before putting any information into any AI tool, ask yourself:
+          <em>"Would I be comfortable if this appeared on a billboard?"</em>
+          If the answer is no, verify the tool is approved and covered by a BAA before proceeding.
+        </p>
+      </div>
+
+      <h2>What You Can Do Right Now</h2>
+
+      <p>
+        Whether your organization has an approved tool list or not, here are concrete
+        steps you can take today:
+      </p>
+
+      <ul>
+        <li><strong>Ask your IT team or practice manager:</strong> "What AI tools are we allowed to use?" If they don't have an answer, you've just identified a gap that needs filling.</li>
+        <li><strong>If you've been using consumer AI tools at work:</strong> Stop using them with any patient data or sensitive information. You can still use them for non-sensitive tasks (drafting marketing copy, researching general medical topics, writing policies).</li>
+        <li><strong>Advocate for approved alternatives:</strong> Share this guide with your compliance officer or practice manager. The tools exist — Anthropic, OpenAI, and Google all offer HIPAA-compliant tiers. The barrier is usually awareness, not cost.</li>
+        <li><strong>Don't wait for a perfect solution:</strong> If your organization can't immediately deploy enterprise AI, at least establish clear rules about what's off-limits (patient data, in all forms) and what's OK (general knowledge tasks with no identifiers).</li>
+      </ul>
+
+      <h2>What Shadow AI Looks Like in Practice</h2>
+
+      <p>Shadow AI isn't malicious — it's people trying to be productive. Common examples:</p>
+
+      <ul>
+        <li>A front desk coordinator pastes an insurance denial letter into ChatGPT to draft an appeal — with the patient's name and diagnosis still in it.</li>
+        <li>A physician takes a photo of a complex lab result and uploads it to Claude for interpretation — the image contains the patient's full identifiers.</li>
+        <li>A billing specialist uses an AI browser extension to auto-summarize claim notes — the extension reads every page they visit, including the EHR.</li>
+        <li>A developer asks an AI coding assistant to help with a database query — the example data includes real patient records.</li>
+      </ul>
+
+      <p>
+        None of these people intended to cause a breach. All of them created one.
+      </p>
+
+      <blockquote class="pull-quote">
+        "When approved tools are provided, unauthorized use drops 89%."
+      </blockquote>
+
+      <div class="callout callout-principle">
+        <div class="callout-title">The Bottom Line</div>
+        <p class="mb-0">
+          Shadow AI isn't a people problem — it's a policy problem. Prohibition doesn't work;
+          people will find tools that make them productive. The answer is to provide approved
+          alternatives and make the safe path the easy path. If your organization doesn't have
+          an approved AI tool list, advocate for one. If it does, follow it.
+        </p>
+      </div>
+
+      <h2>Further Reading &amp; Listening</h2>
+
+      <div class="reading-list">
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.isaca.org/resources/news-and-trends/industry-news/2025/the-rise-of-shadow-ai-auditing-unauthorized-ai-tools-in-the-enterprise" target="_blank" rel="noopener">The Rise of Shadow AI: Auditing Unauthorized AI Tools in the Enterprise</a></div>
+            <div class="reading-meta"><strong>ISACA</strong><br>Authoritative framework for identifying and governing shadow AI in organizations</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.isaca.org/resources/news-and-trends/newsletters/atisaca/2025/volume-19/from-shadow-it-to-shadow-ai-navigating-the-new-frontier-of-enterprise-risk" target="_blank" rel="noopener">From Shadow IT to Shadow AI: Navigating the New Frontier of Enterprise Risk</a></div>
+            <div class="reading-meta"><strong>ISACA</strong><br>How shadow AI differs from shadow IT and why existing controls aren't enough</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.secondtalent.com/resources/shadow-ai-stats/" target="_blank" rel="noopener">Top 50 Shadow AI Statistics 2026</a></div>
+            <div class="reading-meta"><strong>Second Talent</strong><br>Comprehensive data on unauthorized AI use — 200%+ surge, $650K per breach, 60% using unmanaged tools</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.beckershospitalreview.com/healthcare-information-technology/ai/40m-americans-turn-to-chatgpt-for-healthcare-report/" target="_blank" rel="noopener">40M Americans Use ChatGPT for Healthcare</a></div>
+            <div class="reading-meta"><strong>Becker's Hospital Review</strong><br>Scale of health-related AI use — 1 in 4 ChatGPT users submits healthcare prompts weekly</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://mariothomas.com/blog/shadow-ai-amnesty-governance/" target="_blank" rel="noopener">Shadow AI and the Case for an AI Amnesty</a></div>
+            <div class="reading-meta"><strong>Mario Thomas</strong><br>Why prohibition fails and governance approaches that actually work</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="headphones"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://helpmewithhipaa.com/podcasts/" target="_blank" rel="noopener">Help Me With HIPAA — Ep. 540: "Why 95% of AI Dreams End in a Cold Shower"</a></div>
+            <div class="reading-meta"><strong>Donna Grindle &amp; David Sims</strong><br>The longest-running HIPAA podcast tackles AI hype vs. reality for healthcare organizations</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="headphones"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://helpmewithhipaa.com/podcasts/" target="_blank" rel="noopener">Help Me With HIPAA — Ep. 526: AI-Assisted Cyberattacks</a></div>
+            <div class="reading-meta"><strong>Donna Grindle &amp; David Sims</strong><br>How AI ran an entire cyberattack — reconnaissance through extortion — with sector-specific tactics</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="page-nav">
+        <a href="before-you-start.html" class="page-nav-link prev">
+          <span class="page-nav-arrow"><i data-lucide="arrow-left"></i></span>
+          <div>
+            <span class="page-nav-label">Back to</span>
+            <span class="page-nav-title">Before You Start</span>
+          </div>
+        </a>
+        <a href="digital-hygiene.html" class="page-nav-link next">
+          <div>
+            <span class="page-nav-label">Next</span>
+            <span class="page-nav-title">Digital Hygiene</span>
+          </div>
+          <span class="page-nav-arrow"><i data-lucide="arrow-right"></i></span>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>AI Safely 101</strong> · A Practical Guide to Using AI Tools Responsibly<br><a href="https://dochobbs.github.io/ai101/" style="color: var(--slate-400); text-decoration: none; font-size: 0.85rem;">From the makers of AI 101: A Self-Paced Guide to AI in Medicine</a></div>
+      <div>v1.0 · 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-open');
+        navToggle.classList.toggle('nav-toggle-active');
+      });
+    }
+  </script>
+
+  <script src="https://studio.pickaxe.co/api/embed/bundle.js" defer></script>
+
+</body>
+</html>

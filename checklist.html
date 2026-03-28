@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your AI Safety Checklist | AI Safely 101</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .checklist-section { margin: 2rem 0; }
+    .checklist-list { list-style: none; padding: 0; margin: 0; }
+    .checklist-list li { padding: 0.6rem 0 0.6rem 2.25rem; position: relative; border-bottom: 1px solid var(--slate-100); font-size: 1.0625rem; line-height: 1.6; }
+    .checklist-list li::before { content: "☐"; position: absolute; left: 0; top: 0.6rem; font-size: 1.25rem; color: var(--slate-400); }
+    .decision-step { background: var(--slate-50); border-left: 4px solid var(--slate-300); padding: 1rem 1.25rem; margin: 0.75rem 0; border-radius: 0 0.5rem 0.5rem 0; }
+    .decision-step.decision-stop { border-left-color: #dc2626; background: #fef2f2; }
+    .decision-step.decision-go { border-left-color: #16a34a; background: #f0fdf4; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-badge">AI Safely 101</span>
+        <span class="nav-title">A Practical Guide to Using AI Tools Responsibly</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Topics</a>
+        <div id="deployment-eac8a421-3c54-4717-bbef-54bb81b54243" class="nav-chatbot"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <article class="content">
+
+      <header class="unit-header">
+        <span class="unit-label phase-3">REFERENCE</span>
+        <h1 class="unit-title">Your AI Safety Checklist</h1>
+        <p class="unit-subtitle">
+          Print it. Pin it to your wall. Review it before adopting any new AI tool.
+        </p>
+        <div class="unit-meta">
+          <span class="unit-meta-item"><i data-lucide="check-square"></i> Quick reference</span>
+          <span class="unit-meta-item"><i data-lucide="printer"></i> Printable</span>
+        </div>
+      </header>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Use This Daily</div>
+        <p class="mb-0">
+          This checklist distills the entire guide into actionable items you can
+          verify today. Print it, bookmark it, share it with your team.
+        </p>
+      </div>
+
+      <div class="checklist-section">
+        <h2>Before You Use Any AI Tool</h2>
+        <ul class="checklist-list">
+          <li>Is this tool on my organization's approved list?</li>
+          <li>If it handles sensitive data, is there a signed BAA?</li>
+          <li>Am I using the enterprise/API version, not the consumer version?</li>
+          <li>Do I understand what data the tool can access?</li>
+          <li>Have I enabled MFA on this account?</li>
+          <li>Am I using a unique, strong password from my password manager?</li>
+        </ul>
+      </div>
+
+      <div class="checklist-section">
+        <h2>Your Devices</h2>
+        <ul class="checklist-list">
+          <li>Is my disk encrypted? (FileVault / BitLocker — verify today)</li>
+          <li>Is my OS up to date?</li>
+          <li>Am I using a password manager (not browser-saved passwords)?</li>
+          <li>Do I lock my screen when stepping away?</li>
+          <li>Am I using a VPN on public WiFi?</li>
+        </ul>
+      </div>
+
+      <div class="checklist-section">
+        <h2>Your AI Workflows</h2>
+        <ul class="checklist-list">
+          <li>Am I pasting any PHI or sensitive data into AI tools? (If yes — is it BAA-covered?)</li>
+          <li>Have I audited my browser extensions for AI tools that read all pages?</li>
+          <li>Do I have any AI meeting bots or transcription tools running automatically?</li>
+          <li>Am I using any low-code automations (Zapier, Make) that touch sensitive data?</li>
+          <li>Have I reviewed what MCP servers are installed in my developer tools?</li>
+        </ul>
+      </div>
+
+      <div class="checklist-section">
+        <h2>Quarterly Review</h2>
+        <ul class="checklist-list">
+          <li>Disable AI tool accounts I'm no longer using</li>
+          <li>Review and update passwords</li>
+          <li>Check for new organizational policies on AI tool usage</li>
+          <li>Verify disk encryption is still active</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">Set a Reminder</div>
+        <p class="mb-0">
+          Set a calendar reminder for the quarterly review. It takes 15 minutes and
+          prevents most of the "I forgot I had that tool" incidents.
+        </p>
+      </div>
+
+      <h2>Quick Decision Tree</h2>
+
+      <p><strong>Want to use an AI tool with sensitive data?</strong></p>
+
+      <div class="decision-step">
+        <strong>→ Is it on the approved list?</strong>
+      </div>
+      <div class="decision-step decision-stop">
+        <strong>NO →</strong> Stop. Get it approved first. Talk to IT or compliance.
+      </div>
+      <div class="decision-step">
+        <strong>YES → Does it have a signed BAA?</strong>
+      </div>
+      <div class="decision-step decision-stop">
+        <strong>NO →</strong> Stop. Don't use with sensitive data. May still work for non-sensitive tasks.
+      </div>
+      <div class="decision-step">
+        <strong>YES → Are you using the enterprise/API version?</strong>
+      </div>
+      <div class="decision-step decision-stop">
+        <strong>NO →</strong> Stop. Consumer ChatGPT, Claude, and Gemini are not BAA-covered.
+      </div>
+      <div class="decision-step">
+        <strong>YES → Is MFA enabled?</strong>
+      </div>
+      <div class="decision-step decision-stop">
+        <strong>NO →</strong> Enable it now. Takes 2 minutes.
+      </div>
+      <div class="decision-step decision-go">
+        <strong>YES →</strong> Proceed with awareness. Review quarterly. Stay current on org policies.
+      </div>
+
+      <nav class="page-nav">
+        <a href="your-ai-tools.html" class="page-nav-link prev">
+          <span class="page-nav-arrow"><i data-lucide="arrow-left"></i></span>
+          <div>
+            <span class="page-nav-label">Back to</span>
+            <span class="page-nav-title">Your AI Tools</span>
+          </div>
+        </a>
+        <a href="index.html" class="page-nav-link next">
+          <div>
+            <span class="page-nav-label">Back to</span>
+            <span class="page-nav-title">Topics</span>
+          </div>
+          <span class="page-nav-arrow"><i data-lucide="arrow-right"></i></span>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>AI Safely 101</strong> · A Practical Guide to Using AI Tools Responsibly<br><a href="https://dochobbs.github.io/ai101/" style="color: var(--slate-400); text-decoration: none; font-size: 0.85rem;">From the makers of AI 101: A Self-Paced Guide to AI in Medicine</a></div>
+      <div>v1.0 · 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-open');
+        navToggle.classList.toggle('nav-toggle-active');
+      });
+    }
+  </script>
+
+  <script src="https://studio.pickaxe.co/api/embed/bundle.js" defer></script>
+
+</body>
+</html>

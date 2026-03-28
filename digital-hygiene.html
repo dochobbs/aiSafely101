@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Digital Hygiene | AI Safely 101</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-badge">AI Safely 101</span>
+        <span class="nav-title">A Practical Guide to Using AI Tools Responsibly</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Topics</a>
+        <div id="deployment-eac8a421-3c54-4717-bbef-54bb81b54243" class="nav-chatbot"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <article class="content">
+
+      <header class="unit-header">
+        <span class="unit-label phase-1">FOUNDATIONS</span>
+        <h1 class="unit-title">Your Digital Hygiene</h1>
+        <p class="unit-subtitle">
+          Passwords, disk encryption, and basic practices — the foundation
+          everything else depends on.
+        </p>
+        <div class="unit-meta">
+          <span class="unit-meta-item"><i data-lucide="clock"></i> ~8 min read</span>
+          <span class="unit-meta-item"><i data-lucide="shield"></i> Practical guide</span>
+        </div>
+      </header>
+
+      <div class="callout callout-question">
+        <div class="callout-title">Core Question</div>
+        <p class="mb-0">
+          Are the basics in place before you add powerful AI tools on top?
+        </p>
+      </div>
+
+      <p>
+        Before you worry about BAAs and HIPAA compliance, make sure your foundation
+        is solid. These practices aren't glamorous, but they prevent the majority of
+        security incidents.
+      </p>
+
+      <h2>Password Hygiene</h2>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">The Numbers Are Brutal</div>
+        <p>
+          Researchers analyzing over 19 billion leaked passwords found that just
+          <strong>6% were unique</strong> — meaning 94% were reused or weak.
+          Globally, 78% of people admit to reusing passwords. Compromised credentials
+          are involved in <strong>nearly half of all data breaches</strong>.
+        </p>
+        <p class="mb-0">
+          Healthcare has the highest average data breach cost of any sector:
+          <strong>approximately $9 million per incident</strong>.
+        </p>
+      </div>
+
+      <ul>
+        <li><strong>Use a password manager</strong> (1Password, Bitwarden, or Dashlane). Browser-based password managers (Chrome, Safari, Firefox) have gotten much better and are fine for many people — but dedicated managers offer more flexibility, cross-platform access, and secure sharing when teams need it.</li>
+        <li><strong>Every AI tool account gets a unique, randomly generated password</strong> — 16 characters minimum, mix of letters, numbers, and symbols.</li>
+        <li><strong>Enable multi-factor authentication (MFA)</strong> on every AI service. No exceptions. SMS-based MFA is better than nothing, but authenticator apps (Authy, Google Authenticator) are preferred.</li>
+        <li><strong>Never share login credentials.</strong> If a colleague needs access, they get their own account. Shared accounts make it impossible to audit who did what.</li>
+        <li><strong>Review your AI tool accounts quarterly</strong> — disable any you're no longer using. Dormant accounts are attack surfaces.</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Browser Password Managers Are Better Than Nothing</div>
+        <p>
+          Modern browser password managers (Chrome Password Manager, Safari Keychain,
+          Firefox Lockwise) are significantly better than reusing passwords or writing
+          them on sticky notes. They auto-generate strong passwords and sync across
+          devices. For many people, they're a perfectly reasonable choice.
+        </p>
+        <p class="mb-0">
+          Dedicated managers like 1Password or Bitwarden add features teams need:
+          cross-platform vaults, secure sharing, emergency access, and breach monitoring.
+          The best password manager is the one you'll actually use — browser-based or
+          dedicated. The worst is none at all.
+        </p>
+      </div>
+
+      <h3>Mini-Guide: Setting Up a Password Manager</h3>
+      <ol>
+        <li><strong>Pick one:</strong> 1Password ($3/mo), Bitwarden (free tier available), or Dashlane. All work on Mac, Windows, iOS, Android.</li>
+        <li><strong>Install the browser extension</strong> and the mobile app.</li>
+        <li><strong>Create one strong master password</strong> — this is the only password you'll need to remember. Make it a passphrase: <code>correct-horse-battery-staple</code> style, 4+ random words.</li>
+        <li><strong>Import your existing passwords</strong> from Chrome or Safari (all managers have import tools).</li>
+        <li><strong>Enable MFA on the password manager itself.</strong></li>
+        <li><strong>Going forward:</strong> let the manager generate and fill passwords. You'll never type a password again.</li>
+      </ol>
+
+      <h3>Mini-Guide: Enabling MFA on Your AI Tools</h3>
+      <p>Every major AI tool supports MFA. Here's where to find it:</p>
+      <ul>
+        <li><strong>ChatGPT:</strong> Settings → Security → Multi-factor authentication</li>
+        <li><strong>Claude:</strong> Settings → Security → Two-factor authentication</li>
+        <li><strong>Google (Gemini):</strong> myaccount.google.com → Security → 2-Step Verification</li>
+        <li><strong>GitHub (Copilot):</strong> Settings → Password and authentication → Two-factor authentication</li>
+      </ul>
+      <p>Use an authenticator app (Authy, Google Authenticator, or your password manager's built-in TOTP) over SMS when possible. SMS is better than nothing, but SIM-swapping attacks can bypass it.</p>
+
+      <h2>Encrypt Your Disk</h2>
+
+      <div class="callout callout-principle">
+        <div class="callout-title">The Laptop Rule</div>
+        <p class="mb-0">
+          If your laptop is lost or stolen and your disk isn't encrypted, every file on
+          it is readable. It doesn't matter how strong your password is — someone can
+          pull the drive and read it directly.
+        </p>
+      </div>
+
+      <ul>
+        <li><strong>macOS:</strong> FileVault — System Settings → Privacy &amp; Security → FileVault. Turn it on. It's that simple.</li>
+        <li><strong>Windows:</strong> BitLocker — Settings → Privacy &amp; Security → Device Encryption. Enable it.</li>
+        <li><strong>Chromebook:</strong> Encrypted by default.</li>
+        <li><strong>iPhone/iPad:</strong> Encrypted by default when you set a passcode.</li>
+        <li><strong>Android:</strong> Most modern devices encrypted by default. Verify in Settings → Security.</li>
+      </ul>
+
+      <p><strong>Verify it's on TODAY.</strong> Don't assume it is.</p>
+
+      <h3>Mini-Guide: Checking and Enabling Disk Encryption</h3>
+
+      <h4>macOS (FileVault)</h4>
+      <ol>
+        <li>Open <strong>System Settings</strong> (Apple menu → System Settings)</li>
+        <li>Go to <strong>Privacy &amp; Security</strong></li>
+        <li>Scroll down to <strong>FileVault</strong></li>
+        <li>If it says "FileVault is turned off," click <strong>Turn On</strong></li>
+        <li>Choose to save your recovery key to your iCloud account or write it down and store it somewhere safe (not on the laptop itself)</li>
+        <li>Encryption happens in the background — you can keep using your Mac normally</li>
+      </ol>
+
+      <h4>Windows (BitLocker)</h4>
+      <ol>
+        <li>Open <strong>Settings</strong> (Start → Settings)</li>
+        <li>Go to <strong>Privacy &amp; Security → Device Encryption</strong></li>
+        <li>If available, toggle <strong>Device Encryption</strong> on</li>
+        <li>If you don't see this option, search for "BitLocker" in the Start menu — some Windows editions require BitLocker instead</li>
+        <li>Save your recovery key to your Microsoft account or print it</li>
+      </ol>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">Recovery Keys Matter</div>
+        <p class="mb-0">
+          When you enable encryption, you'll get a recovery key. Store it somewhere
+          safe — not on the encrypted device. If you ever forget your password or your
+          device needs recovery, this key is the only way back in. iCloud Keychain or
+          your Microsoft account are good choices.
+        </p>
+      </div>
+
+      <h2>Basic Computer Practices</h2>
+
+      <ul>
+        <li><strong>Keep your OS and applications updated</strong> — security patches matter more than new features. Enable automatic updates where possible.</li>
+        <li><strong>Use a VPN on public WiFi</strong> — coffee shops, airports, conference centers. Your traffic is visible to anyone on the same network without a VPN.</li>
+        <li><strong>Lock your screen when you step away</strong> — macOS: <code>Ctrl+Cmd+Q</code>, Windows: <code>Win+L</code>. Make it muscle memory.</li>
+        <li><strong>Don't install software from unverified sources.</strong> If you didn't seek it out from a known vendor, don't install it.</li>
+        <li><strong>Be skeptical of browser extensions</strong> — especially AI ones. They can read every page you visit.</li>
+        <li><strong>Enable Find My Device</strong> — macOS: System Settings → Apple Account → Find My. Windows: Settings → Privacy &amp; Security → Find My Device.</li>
+      </ul>
+
+      <blockquote class="pull-quote">
+        "Compromised credentials are involved in nearly half of all data breaches,
+        making them one of the most reliable entry points for attackers."
+      </blockquote>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">The 5-Minute Security Audit</div>
+        <p class="mb-0">
+          Right now, take 5 minutes: (1) Check FileVault/BitLocker is on, (2) Update
+          your OS if pending, (3) Set your screen to auto-lock after 2 minutes of
+          inactivity. These three actions prevent most physical-access attacks.
+        </p>
+      </div>
+
+      <h2>Further Reading &amp; Listening</h2>
+
+      <div class="reading-list">
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.huntress.com/blog/password-statistics" target="_blank" rel="noopener">36 Must-Know Password Statistics for 2026</a></div>
+            <div class="reading-meta"><strong>Huntress</strong><br>Comprehensive password hygiene data — 94% reuse rate, 24 billion credentials exposed annually</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.huntress.com/blog/cybersecurity-statistics" target="_blank" rel="noopener">137 Key Cybersecurity Statistics for 2026</a></div>
+            <div class="reading-meta"><strong>Huntress</strong><br>Broad cybersecurity landscape including healthcare-specific breach costs and attack vectors</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://meriplex.com/2026-healthcare-cybersecurity-trends-what-it-leaders-should-expect-next-year/" target="_blank" rel="noopener">2026 Healthcare Cybersecurity Trends</a></div>
+            <div class="reading-meta"><strong>Meriplex</strong><br>What healthcare IT leaders should expect — ransomware, credential hygiene, and HIPAA updates</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="headphones"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://darknetdiaries.com/episode/73/" target="_blank" rel="noopener">Darknet Diaries — Ep. 73: WannaCry</a></div>
+            <div class="reading-meta"><strong>Jack Rhysider</strong><br>The 2017 ransomware attack that crippled the UK's NHS — a vivid reminder of why patching and encryption matter</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="headphones"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://darknetdiaries.com/episode/25/" target="_blank" rel="noopener">Darknet Diaries — Ep. 25: Alberto</a></div>
+            <div class="reading-meta"><strong>Jack Rhysider</strong><br>A hacker breaches a medical provider, steals patient records, and demands Bitcoin ransom — real-world healthcare breach storytelling</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="headphones"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://creators.spotify.com/pod/profile/medcurity/episodes/What-Were-Seeing-Across-Healthcare-Security-Right-Now--Medcurity-Podcast-128-e3eedru" target="_blank" rel="noopener">Medcurity Podcast — Ep. 128: What We're Seeing Across Healthcare Security Right Now</a></div>
+            <div class="reading-meta"><strong>The Medcurity Podcast</strong><br>Upcoming HIPAA Security Rule updates on encryption, MFA, and vendor oversight</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="page-nav">
+        <a href="shadow-ai.html" class="page-nav-link prev">
+          <span class="page-nav-arrow"><i data-lucide="arrow-left"></i></span>
+          <div>
+            <span class="page-nav-label">Back to</span>
+            <span class="page-nav-title">Shadow AI</span>
+          </div>
+        </a>
+        <a href="passwords.html" class="page-nav-link next">
+          <div>
+            <span class="page-nav-label">Next</span>
+            <span class="page-nav-title">Creating Good Passwords</span>
+          </div>
+          <span class="page-nav-arrow"><i data-lucide="arrow-right"></i></span>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>AI Safely 101</strong> · A Practical Guide to Using AI Tools Responsibly<br><a href="https://dochobbs.github.io/ai101/" style="color: var(--slate-400); text-decoration: none; font-size: 0.85rem;">From the makers of AI 101: A Self-Paced Guide to AI in Medicine</a></div>
+      <div>v1.0 · 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-open');
+        navToggle.classList.toggle('nav-toggle-active');
+      });
+    }
+  </script>
+
+  <script src="https://studio.pickaxe.co/api/embed/bundle.js" defer></script>
+
+</body>
+</html>

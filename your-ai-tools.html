@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your AI Tools | AI Safely 101</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .risk-number { display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem; background: var(--slate-800); color: white; border-radius: 50%; font-size: 0.85rem; font-weight: 600; margin-right: 0.75rem; flex-shrink: 0; }
+    .risk-item { display: flex; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid var(--slate-100); }
+    .risk-item p { margin: 0; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-badge">AI Safely 101</span>
+        <span class="nav-title">A Practical Guide to Using AI Tools Responsibly</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Topics</a>
+        <div id="deployment-eac8a421-3c54-4717-bbef-54bb81b54243" class="nav-chatbot"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <article class="content">
+
+      <header class="unit-header">
+        <span class="unit-label phase-2">YOUR TOOLS</span>
+        <h1 class="unit-title">Your AI Tools — Where the Risks Hide</h1>
+        <p class="unit-subtitle">
+          AI scribes, agents, browser extensions, developer tools, and the nine
+          categories of tools that catch people off guard.
+        </p>
+        <div class="unit-meta">
+          <span class="unit-meta-item"><i data-lucide="clock"></i> ~15 min read</span>
+          <span class="unit-meta-item"><i data-lucide="book-open"></i> 6 readings</span>
+        </div>
+      </header>
+
+      <div class="callout callout-question">
+        <div class="callout-title">Core Question</div>
+        <p class="mb-0">
+          You've vetted the big tools. But what about the extensions, automations,
+          and "helpful" add-ons running in the background?
+        </p>
+      </div>
+
+      <h2>AI Agents — The New Frontier of Risk</h2>
+
+      <p>
+        AI agents are tools that don't just answer questions — they <strong>take actions</strong>.
+        They browse the web, write and execute code, access your files, and interact with
+        external services. This is qualitatively different from a chatbot.
+      </p>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">The OpenClaw Incident</div>
+        <p>
+          In early 2026, an AI agent called OpenClaw went viral — evolving from Clawdbot to
+          Moltbot to OpenClaw in just five weeks. It exposed a critical truth: autonomous AI
+          agents can access your API keys, credentials, and any data they can reach. When you
+          give an agent permission to act on your behalf, you're trusting it with everything
+          it can touch.
+        </p>
+        <p class="mb-0">
+          Compare this to Anthropic's managed agentic features — computer use, tool use, and
+          the Agent SDK — which operate within defined permission boundaries. <strong>Managed
+          tools have explicit permission systems; unmanaged agents often don't.</strong>
+        </p>
+      </div>
+
+      <h2>Claude Code, MCP Servers, and Developer Tools</h2>
+
+      <p>
+        Claude Code is a powerful developer tool. It can read your files, execute commands,
+        and interact with external services through MCP (Model Context Protocol) servers.
+      </p>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Real Vulnerabilities, Real CVEs</div>
+        <p>
+          In early 2026, Check Point Research discovered critical vulnerabilities in Claude
+          Code (<strong>CVE-2025-59536</strong>, <strong>CVE-2026-21852</strong>) that allowed
+          remote code execution and API key exfiltration through malicious project configurations.
+        </p>
+        <p class="mb-0">
+          Between January and February 2026, researchers filed <strong>over 30 CVEs</strong>
+          targeting MCP servers. Among 2,614 MCP implementations surveyed, <strong>82% were
+          vulnerable to path traversal attacks</strong>.
+        </p>
+      </div>
+
+      <ul>
+        <li><strong>MCP servers get broad access</strong> to your filesystem, APIs, and credentials. Only install MCP servers from trusted, audited sources.</li>
+        <li><strong>Code and context are sent to Anthropic's servers</strong> for processing. Don't open projects containing PHI in Claude Code.</li>
+        <li><strong>API keys can be exfiltrated</strong> if you clone and open untrusted repositories. Review <code>.claude/</code> directories before trusting a project.</li>
+        <li><strong>npm/pip packages</strong> suggested by the tool may be typosquatted or malicious. Verify packages before installing.</li>
+      </ul>
+
+      <h3>The Dependency Problem</h3>
+
+      <p>
+        Here's something that catches even experienced developers off guard: Claude Code
+        will freely suggest installing packages and dependencies as part of its workflow.
+        When you ask it to build something, it will often run
+        <code>npm install some-package</code> or <code>pip install some-library</code>
+        without hesitation. Each of these commands pulls code from public registries —
+        and that code runs on your machine with your permissions.
+      </p>
+
+      <p>
+        This matters because:
+      </p>
+
+      <ul>
+        <li><strong>Typosquatting is real:</strong> Malicious packages with names like <code>reqeusts</code> (misspelling of <code>requests</code>) exist on npm and PyPI specifically to catch careless installs. Claude Code might suggest the wrong package name.</li>
+        <li><strong>Dependencies have dependencies:</strong> Installing one package can pull in dozens of transitive dependencies, each with its own code that executes on your machine.</li>
+        <li><strong>Post-install scripts run automatically:</strong> npm packages can include scripts that execute immediately upon installation — before you've reviewed any code.</li>
+        <li><strong>Your environment is the blast radius:</strong> Whatever permissions you have — access to files, environment variables, API keys, network — the installed package has too.</li>
+      </ul>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">What to Do About Dependencies</div>
+        <p>
+          When Claude Code suggests installing a package:
+        </p>
+        <ul>
+          <li>Check if the package name is spelled correctly and matches what you expect</li>
+          <li>Verify the package exists on <a href="https://www.npmjs.com" target="_blank" rel="noopener">npmjs.com</a> or <a href="https://pypi.org" target="_blank" rel="noopener">pypi.org</a> — check download counts, last publish date, and maintainer</li>
+          <li>Be especially wary of packages with very low download counts or recent publish dates</li>
+          <li>Never run Claude Code in <code>--dangerously-skip-permissions</code> mode on machines with access to sensitive data</li>
+          <li>Review <code>.claude/</code> directories in repositories before trusting them</li>
+        </ul>
+        <p class="mb-0">
+          This isn't about being paranoid — it's about being as thoughtful with AI-suggested
+          code as you would be with AI-generated clinical recommendations. Trust but verify.
+        </p>
+      </div>
+
+      <h2>Be Mindful Using Corporate AI for Personal Tasks</h2>
+
+      <p>
+        If your organization provides you with a ChatGPT Enterprise account, a Claude
+        Enterprise workspace, or a Copilot license — it's tempting to use it for personal
+        tasks too. Drafting a personal email. Planning a vacation. Asking about a medical
+        question for yourself or a family member.
+      </p>
+
+      <p>
+        This isn't primarily about "breaking the rules" — it's about understanding that
+        <strong>corporate AI tools aren't like Google</strong>:
+      </p>
+
+      <ul>
+        <li><strong>Memory and context:</strong> Many enterprise AI tools have memory features that persist between conversations. Your personal query about a family member's health condition may surface in a future work conversation.</li>
+        <li><strong>Saved conversations:</strong> Your organization can likely see your conversation history. What feels like a private chat is visible to IT administrators.</li>
+        <li><strong>Usage analytics:</strong> Organizations track how tools are used. Your personal usage is part of that data.</li>
+        <li><strong>Training and improvement:</strong> Depending on the organization's agreement, conversations may be used to improve the tool — your personal data included.</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <div class="callout-title">The Simple Rule</div>
+        <p class="mb-0">
+          Use your organization's AI tools for work. Use your personal accounts for
+          personal tasks. Keep the streams separate — not because you'll get in trouble,
+          but because the tools are designed to remember, learn, and surface context.
+          You don't want your weekend recipe search showing up in a Monday morning
+          patient note suggestion.
+        </p>
+      </div>
+
+      <h2>Browser AI Extensions</h2>
+
+      <p>
+        AI browser extensions (Monica, Merlin, Sider, and dozens of others) can read
+        every webpage you visit — including your open EHR session, your email, and
+        your banking portal. Most have no BAA.
+      </p>
+
+      <div class="callout callout-principle">
+        <div class="callout-title">The Extension Rule</div>
+        <p class="mb-0">
+          If an AI browser extension can "read and change all your data on all websites,"
+          it can see your patient data when you have your EHR open. Treat browser extensions
+          like you'd treat giving someone your login credentials — because functionally,
+          that's what you're doing.
+        </p>
+      </div>
+
+      <blockquote class="pull-quote">
+        "I ship code I don't read." — Peter Steinberger, OpenClaw creator, who made
+        6,600 commits in January 2026 alone, almost all generated by AI agents.
+      </blockquote>
+
+      <div class="callout callout-principle">
+        <div class="callout-title">The Bottom Line on AI Agents</div>
+        <p class="mb-0">
+          The risk isn't that AI agents are inherently malicious — it's that they inherit
+          all the permissions you give them. An agent with access to your filesystem, API
+          keys, and network is only as trustworthy as the code it runs. Managed agents with
+          explicit permission systems are fundamentally different from unmanaged ones that
+          operate without guardrails.
+        </p>
+      </div>
+
+      <h2>Nine More Tools That Catch People Off Guard</h2>
+
+      <div class="risk-item">
+        <span class="risk-number">1</span>
+        <p><strong>Zapier/Make/n8n Automations</strong> — Low-code tools that move data between services. If you're automating anything involving patient data, every service in the chain needs a BAA.</p>
+      </div>
+      <div class="risk-item">
+        <span class="risk-number">2</span>
+        <p><strong>AI PDF and Document Tools</strong> — Uploading patient documents to AI summarizers, OCR tools, or "smart" PDF readers. If the tool processes documents on external servers, you need a BAA.</p>
+      </div>
+      <div class="risk-item">
+        <span class="risk-number">3</span>
+        <p><strong>Voice and Transcription Apps</strong> — Otter.ai, meeting bots, Whisper-based tools that auto-record. Remember the Ontario Hospital breach — a bot joined a meeting, recorded seven patients' data, and emailed it to 65 people.</p>
+      </div>
+      <div class="risk-item">
+        <span class="risk-number">4</span>
+        <p><strong>Code Assistants (Copilot, Cursor, Windsurf)</strong> — These transmit your code to external servers. If your code contains patient data — even in comments or test fixtures — that's a potential HIPAA violation. Most do not offer BAAs.</p>
+      </div>
+      <div class="risk-item">
+        <span class="risk-number">5</span>
+        <p><strong>Local Model Downloads</strong> — Pulling models from Hugging Face or similar. Models can contain malware or phone home. Verify the source and scan before running.</p>
+      </div>
+      <div class="risk-item">
+        <span class="risk-number">6</span>
+        <p><strong>AI Image/Video Tools</strong> — Uploading photos or screenshots for AI processing. If those images contain patient information, you've just transmitted PHI to an uncovered service.</p>
+      </div>
+      <div class="risk-item">
+        <span class="risk-number">7</span>
+        <p><strong>"Smart" Note-Taking Apps</strong> — Notion AI, Obsidian plugins with AI features. Check whether AI features transmit data to external servers and whether BAAs are available.</p>
+      </div>
+      <div class="risk-item">
+        <span class="risk-number">8</span>
+        <p><strong>Email AI Features</strong> — Gmail's "Help me write," Outlook Copilot. These may or may not be covered under your organization's BAA. Verify before using with patient communications.</p>
+      </div>
+      <div class="risk-item">
+        <span class="risk-number">9</span>
+        <p><strong>AI-Powered Search</strong> — Perplexity, Arc browser with AI features. Your queries may be stored and associated with your account. Don't search for patient-specific information on uncovered platforms.</p>
+      </div>
+
+      <h2>Further Reading &amp; Listening</h2>
+
+      <div class="reading-list">
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare" target="_blank" rel="noopener">Personal AI Agents like OpenClaw Are a Security Nightmare</a></div>
+            <div class="reading-meta"><strong>Cisco Blogs</strong><br>Why autonomous agents with credential access represent a fundamentally new threat class</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://1337skills.com/blog/2026-03-09-agentic-ai-security-shadow-agents-and-the-new-attack-surface/" target="_blank" rel="noopener">Agentic AI Security: Shadow Agents, MCP Exploits, and the New Attack Surface</a></div>
+            <div class="reading-meta"><strong>1337skills</strong><br>Comprehensive analysis of how AI agents create new attack surfaces — MCP exploits, supply chain threats</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.heyuan110.com/posts/ai/2026-03-10-mcp-security-2026/" target="_blank" rel="noopener">MCP Security 2026: 30 CVEs in 60 Days</a></div>
+            <div class="reading-meta"><strong>Security Research</strong><br>30+ CVEs filed in 60 days — the first major security audit of the MCP ecosystem</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://code.claude.com/docs/en/security" target="_blank" rel="noopener">Claude Code Security</a></div>
+            <div class="reading-meta"><strong>Anthropic</strong><br>Official security documentation — permission models, data handling, and best practices</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://blog.checkpoint.com/research/check-point-researchers-expose-critical-claude-code-flaws/" target="_blank" rel="noopener">Check Point Researchers Expose Critical Claude Code Flaws</a></div>
+            <div class="reading-meta"><strong>Check Point Research</strong><br>Technical deep-dive into CVE-2025-59536 and CVE-2026-21852 — RCE and API key exfiltration</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.harmonic.security/resources/securing-claude-cowork-a-security-practitioners-guide" target="_blank" rel="noopener">Securing Claude Cowork: A Security Practitioner's Guide</a></div>
+            <div class="reading-meta"><strong>Harmonic Security</strong><br>Enterprise security guide — MCP governance, data loss prevention, and access controls</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.mintmcp.com/blog/claude-code-security" target="_blank" rel="noopener">Claude Code Security: Enterprise Best Practices &amp; Risk Mitigation</a></div>
+            <div class="reading-meta"><strong>MintMCP</strong><br>Practical risk mitigation strategies for teams using Claude Code in production</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="headphones"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://helpmewithhipaa.com/real-hacker-stories-on-darknet-diaries-ep-197/" target="_blank" rel="noopener">Help Me With HIPAA — Ep. 197: Real Hacker Stories from Darknet Diaries</a></div>
+            <div class="reading-meta"><strong>Donna Grindle &amp; David Sims</strong><br>Healthcare-specific hacker stories that illustrate why tool security isn't abstract</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="headphones"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://darknetdiaries.com/episode/73/" target="_blank" rel="noopener">Darknet Diaries — Ep. 73: WannaCry</a></div>
+            <div class="reading-meta"><strong>Jack Rhysider</strong><br>The ransomware attack that crippled the UK's NHS — 45 min on why unpatched systems and poor security hygiene have real consequences</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="page-nav">
+        <a href="hipaa-and-baas.html" class="page-nav-link prev">
+          <span class="page-nav-arrow"><i data-lucide="arrow-left"></i></span>
+          <div>
+            <span class="page-nav-label">Back to</span>
+            <span class="page-nav-title">HIPAA and BAAs</span>
+          </div>
+        </a>
+        <a href="checklist.html" class="page-nav-link next">
+          <div>
+            <span class="page-nav-label">Next</span>
+            <span class="page-nav-title">Checklist</span>
+          </div>
+          <span class="page-nav-arrow"><i data-lucide="arrow-right"></i></span>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>AI Safely 101</strong> · A Practical Guide to Using AI Tools Responsibly<br><a href="https://dochobbs.github.io/ai101/" style="color: var(--slate-400); text-decoration: none; font-size: 0.85rem;">From the makers of AI 101: A Self-Paced Guide to AI in Medicine</a></div>
+      <div>v1.0 · 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-open');
+        navToggle.classList.toggle('nav-toggle-active');
+      });
+    }
+  </script>
+
+  <script src="https://studio.pickaxe.co/api/embed/bundle.js" defer></script>
+
+</body>
+</html>

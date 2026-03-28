@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HIPAA, BAAs, and AI | AI Safely 101</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .baa-table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    .baa-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .baa-table th { background: var(--slate-100); padding: 0.75rem 1rem; text-align: left; font-weight: 600; border-bottom: 2px solid var(--slate-300); }
+    .baa-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--slate-200); }
+    .baa-table tr:hover { background: var(--slate-50); }
+    .baa-no { color: #dc2626; font-weight: 700; }
+    .baa-yes { color: #16a34a; font-weight: 700; }
+    .scribe-list { list-style: none; padding: 0; }
+    .scribe-list li { padding: 0.75rem 0; border-bottom: 1px solid var(--slate-100); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-badge">AI Safely 101</span>
+        <span class="nav-title">A Practical Guide to Using AI Tools Responsibly</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Topics</a>
+        <div id="deployment-eac8a421-3c54-4717-bbef-54bb81b54243" class="nav-chatbot"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <article class="content">
+
+      <header class="unit-header">
+        <span class="unit-label phase-2">YOUR TOOLS</span>
+        <h1 class="unit-title">HIPAA, BAAs, and AI</h1>
+        <p class="unit-subtitle">
+          What HIPAA actually requires, which platforms offer BAAs, and why the
+          consumer vs. enterprise distinction will save your career.
+        </p>
+        <div class="unit-meta">
+          <span class="unit-meta-item"><i data-lucide="clock"></i> ~12 min read</span>
+          <span class="unit-meta-item"><i data-lucide="book-open"></i> 3 readings</span>
+        </div>
+      </header>
+
+      <p>
+        HIPAA was written in 1996 for paper charts and fax machines. AI breaks almost
+        every assumption it was built on.
+      </p>
+
+      <div class="concepts-grid">
+        <div class="concept-card">
+          <div class="concept-icon"><i data-lucide="brain"></i></div>
+          <div class="concept-name">AI Learns From Data</div>
+          <div class="concept-desc">Models can embed PHI in their weights — you can't "delete" it later</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-icon"><i data-lucide="zap"></i></div>
+          <div class="concept-name">AI Acts Autonomously</div>
+          <div class="concept-desc">Tools can join meetings, record, transmit data without your initiation</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-icon"><i data-lucide="cloud"></i></div>
+          <div class="concept-name">External Transmission</div>
+          <div class="concept-desc">Prompts processed on external servers you can't see or control</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-icon"><i data-lucide="layers"></i></div>
+          <div class="concept-name">Opaque Data Flows</div>
+          <div class="concept-desc">AI integrates with calendars, email, files — blurring boundaries</div>
+        </div>
+      </div>
+
+      <h2>The BAA Requirement</h2>
+
+      <p>
+        A <strong>Business Associate Agreement (BAA)</strong> is a legal contract where
+        an AI vendor accepts liability for safeguarding protected health information (PHI).
+        Without one, using the tool with PHI is a HIPAA violation. Period.
+      </p>
+
+      <p>
+        A BAA must cover three things: <strong>Permitted Uses</strong> (the vendor cannot
+        use patient data to train their public models), <strong>Breach Notification</strong>
+        (the vendor must notify you within a specific timeframe if a breach occurs), and
+        <strong>Subcontractors</strong> (the vendor's downstream partners must also be compliant).
+      </p>
+
+      <div class="callout callout-warning">
+        <div class="callout-title">Consumer vs. Enterprise — The Critical Distinction</div>
+        <p>
+          ChatGPT (the free or Plus version) does <strong>NOT</strong> have a BAA.
+          ChatGPT Enterprise does. Claude.ai (consumer) does <strong>NOT</strong> have
+          a BAA. The Claude API for commercial customers does.
+        </p>
+        <p class="mb-0">
+          Using the consumer version of any AI tool with patient data is a HIPAA violation,
+          even if the enterprise version of that same product is compliant.
+        </p>
+      </div>
+
+      <h2>BAA Availability by Platform (March 2026)</h2>
+
+      <div class="baa-table-wrap">
+        <table class="baa-table">
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>BAA?</th>
+              <th>Notes</th>
+              <th>Approx. Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>OpenAI API</td>
+              <td><span class="baa-yes">Yes</span></td>
+              <td>Zero-retention endpoints available</td>
+              <td>Pay-per-use</td>
+            </tr>
+            <tr>
+              <td>ChatGPT (Free/Plus)</td>
+              <td><span class="baa-no">NO</span></td>
+              <td>Never use with PHI</td>
+              <td>$0–20/mo</td>
+            </tr>
+            <tr>
+              <td>ChatGPT Enterprise/Edu</td>
+              <td><span class="baa-yes">Yes</span></td>
+              <td>BAA included</td>
+              <td>Custom pricing</td>
+            </tr>
+            <tr>
+              <td>Claude API (Anthropic)</td>
+              <td><span class="baa-yes">Yes</span></td>
+              <td>Zero-retention, HIPAA-eligible services</td>
+              <td>Pay-per-use</td>
+            </tr>
+            <tr>
+              <td>Claude.ai (Free/Pro/Max/Team)</td>
+              <td><span class="baa-no">NO</span></td>
+              <td>Never use with PHI</td>
+              <td>$0–100/mo</td>
+            </tr>
+            <tr>
+              <td>Claude Enterprise</td>
+              <td><span class="baa-yes">Yes</span></td>
+              <td>HIPAA-ready plan with BAA</td>
+              <td>Custom pricing</td>
+            </tr>
+            <tr>
+              <td>Azure OpenAI</td>
+              <td><span class="baa-yes">Yes</span></td>
+              <td>BAA included with Azure</td>
+              <td>Azure pricing</td>
+            </tr>
+            <tr>
+              <td>Google Vertex AI</td>
+              <td><span class="baa-yes">Yes</span></td>
+              <td>BAA available</td>
+              <td>GCP pricing</td>
+            </tr>
+            <tr>
+              <td>AWS Bedrock</td>
+              <td><span class="baa-yes">Yes</span></td>
+              <td>HIPAA-eligible with BAA</td>
+              <td>AWS pricing</td>
+            </tr>
+            <tr>
+              <td>Google Workspace (Gemini)</td>
+              <td><span class="baa-yes">Yes</span></td>
+              <td>NotebookLM <strong>NOT</strong> covered</td>
+              <td>Workspace pricing</td>
+            </tr>
+            <tr>
+              <td>AssemblyAI</td>
+              <td><span class="baa-yes">Yes</span></td>
+              <td>Transcription/speech-to-text; BAA available</td>
+              <td>Pay-per-use</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <blockquote class="pull-quote">
+        "We're operating in a gap between what AI can do and what regulators have
+        addressed. HIPAA wasn't written for neural networks that learn from every input."
+      </blockquote>
+
+      <p>
+        The pattern: <strong>API and enterprise tiers offer BAAs. Consumer tiers do not.</strong>
+        The consumer version of Claude, ChatGPT, or Gemini on your phone is NOT the same
+        product as the enterprise version your hospital might have approved.
+      </p>
+
+      <h2>Foundation Models vs. Cloud Providers</h2>
+
+      <p>
+        Getting a BAA directly from a foundation model company (OpenAI, Anthropic)
+        typically requires enterprise or API-level accounts and custom agreements.
+        <strong>Cloud providers like AWS, Azure, and Google Cloud make it easier</strong> —
+        BAAs are often included as part of their standard healthcare compliance packages.
+      </p>
+
+      <p>
+        These platforms offer the same foundation models (Claude via AWS Bedrock,
+        GPT-4 via Azure OpenAI, Gemini via Vertex AI) with the cloud provider's compliance
+        infrastructure wrapped around them. For smaller organizations, the cloud provider
+        route is often more practical and cost-effective.
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">Google Workspace Makes This Easy</div>
+        <p class="mb-0">
+          If your organization already uses Google Workspace (Gmail, Drive, Calendar),
+          you may be closer to a BAA than you think. Google's BAA is available through
+          the Admin Console with electronic acceptance — no sales calls, no custom
+          contracts, no lawyers required. It's one of the fastest paths to HIPAA-compliant
+          AI for small practices.
+        </p>
+      </div>
+
+      <h2>How to Actually Sign a BAA</h2>
+
+      <p>
+        The process varies by provider, but here's what you can expect. We've included
+        direct links where possible.
+      </p>
+
+      <h3>Google Workspace (Easiest Path)</h3>
+      <ol>
+        <li>Log in to your <a href="https://admin.google.com" target="_blank" rel="noopener">Google Admin Console</a> as a Super Administrator</li>
+        <li>Navigate to <strong>Account → Legal and Compliance</strong></li>
+        <li>Find the <strong>Google Workspace HIPAA Business Associate Amendment</strong></li>
+        <li>Click <strong>Review and Accept</strong></li>
+        <li>Confirm whether you're a Covered Entity or Business Associate</li>
+        <li>Done — the electronic acceptance is legally binding. Take a screenshot for your records.</li>
+      </ol>
+      <p>
+        After signing, review Google's
+        <a href="https://workspace.google.com/terms/2015/1/hipaa_functionality/" target="_blank" rel="noopener">HIPAA Included Functionality list</a>
+        to confirm which services are covered. Note: <strong>NotebookLM is NOT covered</strong>
+        under the Workspace BAA.
+      </p>
+
+      <h3>AWS Bedrock (Self-Service)</h3>
+      <ol>
+        <li>Log in to the <a href="https://console.aws.amazon.com" target="_blank" rel="noopener">AWS Management Console</a></li>
+        <li>Navigate to <strong>AWS Artifact</strong></li>
+        <li>Accept the <strong>AWS Business Associate Addendum</strong></li>
+        <li>Amazon Bedrock is automatically included under the AWS BAA — no separate step needed</li>
+      </ol>
+      <p>
+        This covers Claude (via Bedrock), Amazon Titan, and other models on the platform.
+        See <a href="https://aws.amazon.com/compliance/hipaa-eligible-services-reference/" target="_blank" rel="noopener">AWS HIPAA Eligible Services</a>
+        for the full list.
+      </p>
+
+      <h3>OpenAI API</h3>
+      <ol>
+        <li>Email <a href="mailto:baa@openai.com"><strong>baa@openai.com</strong></a> with your organization details and intended use case</li>
+        <li>OpenAI typically responds within 1–2 business days</li>
+        <li>Approval is case-by-case; confirm your endpoints are zero-retention eligible</li>
+      </ol>
+      <p>
+        For ChatGPT Enterprise or ChatGPT for Healthcare, work with
+        <a href="https://openai.com/contact-sales" target="_blank" rel="noopener">OpenAI Sales</a>.
+        Note: <strong>ChatGPT Business is not eligible for a BAA.</strong>
+      </p>
+
+      <h3>Anthropic (Claude API / Enterprise)</h3>
+      <ol>
+        <li>Contact <a href="https://www.anthropic.com/contact-sales" target="_blank" rel="noopener">Anthropic Sales</a> to discuss your deployment</li>
+        <li>BAAs require Zero Data Retention (ZDR) to be enabled</li>
+        <li>For Enterprise plans, the HIPAA-ready offering is sales-assisted only</li>
+      </ol>
+      <p>
+        Review Anthropic's
+        <a href="https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers" target="_blank" rel="noopener">BAA documentation</a>
+        for the full list of what's covered and what's not. Important: Claude Code is
+        only covered under the BAA when ZDR is enabled.
+      </p>
+
+      <h3>Azure OpenAI</h3>
+      <p>
+        If you have an existing Azure subscription, the BAA is typically included in your
+        enterprise agreement. Contact your Microsoft account representative or visit the
+        <a href="https://azure.microsoft.com/en-us/support/legal/hipaa-baa/" target="_blank" rel="noopener">Azure HIPAA BAA page</a>.
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-title">January 2025 HIPAA Security Rule Update</div>
+        <p class="mb-0">
+          The HHS Office for Civil Rights proposed the first major HIPAA Security Rule
+          update in 20 years. Key changes: the distinction between "required" and
+          "addressable" safeguards is removed, and stricter expectations for risk
+          management, encryption, and resilience are introduced. Organizations deploying
+          AI should treat these as mandatory.
+        </p>
+      </div>
+
+      <h2>AI Scribes That Sign BAAs</h2>
+
+      <p>
+        Ambient AI scribes are among the most adopted AI tools in healthcare. Major
+        providers with HIPAA-compliant solutions:
+      </p>
+
+      <ul class="scribe-list">
+        <li><strong>Nuance DAX Copilot</strong> — HITRUST CSF and SOC 2 Type II certified. Integrated with Epic and other major EHRs.</li>
+        <li><strong>Abridge</strong> — BAA available. Used by major health systems including UPMC and UCI Health.</li>
+        <li><strong>Ambience Healthcare</strong> — BAA available. Enterprise-focused with deep EHR integration.</li>
+        <li><strong>Freed AI</strong> — HIPAA and HITECH compliant. Zero storage of patient recordings. Popular with solo/small practices (~$99/mo).</li>
+        <li><strong>DeepScribe</strong> — BAA available. Focused on specialty practices.</li>
+        <li><strong>Twofold Health</strong> — HIPAA/HITECH compliant. Recordings never stored. Flat pricing ($49/mo).</li>
+      </ul>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">The Scribe Evaluation Checklist</div>
+        <p class="mb-0">
+          Verify four things: (1) a signed BAA, (2) encrypted data transmission and
+          storage, (3) access controls and audit logs, (4) clear data retention and
+          deletion policies. If they can't document all four, walk away.
+        </p>
+      </div>
+
+      <div class="callout callout-principle">
+        <div class="callout-title">The Bottom Line</div>
+        <p class="mb-0">
+          The safest approach is conservative: treat AI systems that touch patient data
+          as high-risk by default, require BAAs and security verification before deployment,
+          and build governance structures that can adapt as both capabilities and regulations
+          evolve.
+        </p>
+      </div>
+
+      <h2>Further Reading &amp; Listening</h2>
+
+      <div class="reading-list">
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers" target="_blank" rel="noopener">Business Associate Agreements (BAA) for Commercial Customers</a></div>
+            <div class="reading-meta"><strong>Anthropic Privacy Center</strong><br>Official documentation of what Anthropic BAAs do and don't cover — essential reading</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans" target="_blank" rel="noopener">HIPAA-Ready Enterprise Plans</a></div>
+            <div class="reading-meta"><strong>Claude Help Center</strong><br>Details on Claude Enterprise's HIPAA-ready offering and how to begin the BAA process</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://medtechsolutions.com/resource-center/blog/hipaa-and-ai-in-healthcare-lessons-from-2025-and-whats-coming-in-2026/" target="_blank" rel="noopener">HIPAA and AI in Healthcare: Lessons from 2025 and What's Coming in 2026</a></div>
+            <div class="reading-meta"><strong>MedTech Solutions</strong><br>Comprehensive overview of HIPAA compliance challenges with AI, including the January 2025 Security Rule update</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.healthlawattorneyblog.com/your-ai-scribe-is-listening-is-your-compliance-program/" target="_blank" rel="noopener">Your AI Scribe Is Listening. Is Your Compliance Program?</a></div>
+            <div class="reading-meta"><strong>Health Law Attorney Blog</strong><br>Legal perspective on ambient AI documentation compliance — the regulatory view</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.hipaajournal.com/when-ai-technology-and-hipaa-collide/" target="_blank" rel="noopener">When AI Technology and HIPAA Collide</a></div>
+            <div class="reading-meta"><strong>HIPAA Journal</strong><br>Analysis of AI-specific compliance challenges and the entity-based framework</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://healthtechmagazine.net/article/2026/03/hipaa-compliant-ai-openai-healthbench-claude-perfcon" target="_blank" rel="noopener">OpenAI, HealthBench, Claude, and HIPAA Compliance</a></div>
+            <div class="reading-meta"><strong>HealthTech Magazine</strong><br>What healthcare IT needs to know about the major AI platforms' compliance postures</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="headphones"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://helpmewithhipaa.com/podcasts/" target="_blank" rel="noopener">Help Me With HIPAA — Ep. 541: "2026 Planning Since Predicting Is Pointless"</a></div>
+            <div class="reading-meta"><strong>Donna Grindle &amp; David Sims</strong><br>AI governance, backup strategies, and vendor BAAs — a practical 2026 survival guide</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="book-open"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://www.assemblyai.com/docs/faq/can-you-sign-a-baa" target="_blank" rel="noopener">Will AssemblyAI Sign a BAA?</a></div>
+            <div class="reading-meta"><strong>AssemblyAI</strong><br>How to execute a Business Associate Addendum for speech-to-text and transcription services</div>
+          </div>
+        </div>
+        <div class="reading-item">
+          <div class="reading-type"><i data-lucide="headphones"></i></div>
+          <div class="reading-content">
+            <div class="reading-title"><a href="https://podcasts.apple.com/us/podcast/the-healthcare-compliance-pod/id1727587759" target="_blank" rel="noopener">The Healthcare Compliance Pod: AI for Smaller Providers (3-part series)</a></div>
+            <div class="reading-meta"><strong>The Healthcare Compliance Pod</strong><br>How to ask vendors about AI, create review processes, and minimize compliance risks — aimed at smaller practices</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="page-nav">
+        <a href="digital-hygiene.html" class="page-nav-link prev">
+          <span class="page-nav-arrow"><i data-lucide="arrow-left"></i></span>
+          <div>
+            <span class="page-nav-label">Back to</span>
+            <span class="page-nav-title">Digital Hygiene</span>
+          </div>
+        </a>
+        <a href="your-ai-tools.html" class="page-nav-link next">
+          <div>
+            <span class="page-nav-label">Next</span>
+            <span class="page-nav-title">Your AI Tools</span>
+          </div>
+          <span class="page-nav-arrow"><i data-lucide="arrow-right"></i></span>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>AI Safely 101</strong> · A Practical Guide to Using AI Tools Responsibly<br><a href="https://dochobbs.github.io/ai101/" style="color: var(--slate-400); text-decoration: none; font-size: 0.85rem;">From the makers of AI 101: A Self-Paced Guide to AI in Medicine</a></div>
+      <div>v1.0 · 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-open');
+        navToggle.classList.toggle('nav-toggle-active');
+      });
+    }
+  </script>
+
+  <script src="https://studio.pickaxe.co/api/embed/bundle.js" defer></script>
+
+</body>
+</html>

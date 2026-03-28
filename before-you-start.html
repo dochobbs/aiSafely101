@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Before You Start | AI Safely 101</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-badge">AI Safely 101</span>
+        <span class="nav-title">A Practical Guide to Using AI Tools Responsibly</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Topics</a>
+        <div id="deployment-eac8a421-3c54-4717-bbef-54bb81b54243" class="nav-chatbot"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <article class="content">
+
+      <header class="unit-header">
+        <span class="unit-label phase-1">GETTING STARTED</span>
+        <h1 class="unit-title">This Guide Is For You (Not Security Experts)</h1>
+        <p class="unit-subtitle">
+          A practical orientation for people excited about AI who want to use
+          it responsibly.
+        </p>
+        <div class="unit-meta">
+          <span class="unit-meta-item">
+            <i data-lucide="clock"></i>
+            ~5 min read
+          </span>
+        </div>
+      </header>
+
+      <div class="callout callout-question">
+        <div class="callout-title">Core Question</div>
+        <p class="mb-0">
+          You just got access to the most powerful information tools ever created.
+          What do you need to know — today — to use them without putting yourself,
+          your patients, or your organization at risk?
+        </p>
+      </div>
+
+      <p>
+        This isn't a compliance manual or a cybersecurity course. It's a practical
+        orientation for people who are excited about AI and want to use it responsibly.
+        If you're a clinician, a medical assistant, a front desk coordinator, a billing
+        specialist, or anyone who handles sensitive information — this is for you.
+      </p>
+
+      <div class="callout callout-principle">
+        <div class="callout-title">The Ground Rule</div>
+        <p class="mb-0">
+          AI tools are extraordinarily capable. That capability comes with real risk —
+          not theoretical risk, but the kind that leads to breached patient data,
+          compromised credentials, and regulatory fines measured in millions. The good
+          news: most of these risks are preventable with basic practices.
+        </p>
+      </div>
+
+      <div class="concepts-grid">
+        <div class="concept-card">
+          <div class="concept-icon"><i data-lucide="shield"></i></div>
+          <div class="concept-name">Not Fear — Awareness</div>
+          <div class="concept-desc">Understanding risks lets you use AI confidently, not avoid it entirely</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-icon"><i data-lucide="check-circle"></i></div>
+          <div class="concept-name">Practical, Not Perfect</div>
+          <div class="concept-desc">We focus on the 20% of practices that prevent 80% of problems</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-icon"><i data-lucide="users"></i></div>
+          <div class="concept-name">Everyone's Responsibility</div>
+          <div class="concept-desc">Security isn't just IT's job — every person who touches a tool is a link in the chain</div>
+        </div>
+      </div>
+
+      <h2>What We'll Cover</h2>
+
+      <p>This guide has five focused modules after this introduction:</p>
+
+      <ul>
+        <li><strong>Shadow AI</strong> — The tools your team is already using without your knowledge, and why that matters.</li>
+        <li><strong>Digital Hygiene</strong> — Passwords, disk encryption, and the basic practices that everything else depends on.</li>
+        <li><strong>HIPAA, BAAs, and AI</strong> — What the law actually requires, which platforms comply, and why consumer vs. enterprise is the distinction that will save your career.</li>
+        <li><strong>Your AI Tools</strong> — Agents, developer tools, browser extensions, and the nine categories of tools that catch even careful people off guard.</li>
+        <li><strong>The Checklist</strong> — A printable reference you can use before adopting any new AI tool.</li>
+      </ul>
+
+      <p>
+        The whole guide takes about 20 minutes. You can read it straight through or
+        jump to the topics most relevant to your work.
+      </p>
+
+      <nav class="page-nav">
+        <a href="index.html" class="page-nav-link prev">
+          <span class="page-nav-arrow"><i data-lucide="arrow-left"></i></span>
+          <div>
+            <span class="page-nav-label">Back to</span>
+            <span class="page-nav-title">Topics</span>
+          </div>
+        </a>
+        <a href="shadow-ai.html" class="page-nav-link next">
+          <div>
+            <span class="page-nav-label">Next</span>
+            <span class="page-nav-title">Shadow AI</span>
+          </div>
+          <span class="page-nav-arrow"><i data-lucide="arrow-right"></i></span>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>AI Safely 101</strong> · A Practical Guide to Using AI Tools Responsibly<br><a href="https://dochobbs.github.io/ai101/" style="color: var(--slate-400); text-decoration: none; font-size: 0.85rem;">From the makers of AI 101: A Self-Paced Guide to AI in Medicine</a></div>
+      <div>v1.0 · 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-open');
+        navToggle.classList.toggle('nav-toggle-active');
+      });
+    }
+  </script>
+
+  <script src="https://studio.pickaxe.co/api/embed/bundle.js" defer></script>
+
+</body>
+</html>
