@@ -48,8 +48,9 @@
           consumer vs. enterprise distinction will save your career.
         </p>
         <div class="unit-meta">
-          <span class="unit-meta-item"><i data-lucide="clock"></i> ~12 min read</span>
-          <span class="unit-meta-item"><i data-lucide="book-open"></i> 3 readings</span>
+          <span class="unit-meta-item"><i data-lucide="clock"></i> ~20 min read</span>
+          <span class="unit-meta-item"><i data-lucide="book-open"></i> 9 readings</span>
+          <span class="unit-meta-item"><i data-lucide="headphones"></i> 2 podcasts</span>
         </div>
       </header>
 
@@ -86,15 +87,166 @@
       <p>
         A <strong>Business Associate Agreement (BAA)</strong> is a legal contract where
         an AI vendor accepts liability for safeguarding protected health information (PHI).
-        Without one, using the tool with PHI is a HIPAA violation. Period.
+        Without one, using the tool with PHI is a HIPAA violation — for both you and the
+        vendor. It's not optional. It's not a nice-to-have. It's the law.
       </p>
 
+      <div class="callout callout-warning">
+        <div class="callout-title">The Gap Is Enormous</div>
+        <p class="mb-0">
+          <strong>66% of US physicians</strong> now actively use AI tools in their practice.
+          But only <strong>23% of health systems</strong> report having BAAs in place for
+          those tools. That means most physicians using AI are doing so without the legal
+          protection their patients are entitled to — and most of them don't realize it.
+        </p>
+      </div>
+
+      <h2>What's Actually Inside a BAA</h2>
+
       <p>
-        A BAA must cover three things: <strong>Permitted Uses</strong> (the vendor cannot
-        use patient data to train their public models), <strong>Breach Notification</strong>
-        (the vendor must notify you within a specific timeframe if a breach occurs), and
-        <strong>Subcontractors</strong> (the vendor's downstream partners must also be compliant).
+        Most people have never read one. They're legal documents written in legal language,
+        and most of us sign them (or don't) without understanding what they contain. Here's
+        what a BAA actually says, translated into plain language:
       </p>
+
+      <h3>The Six Key Clauses</h3>
+
+      <ol>
+        <li><strong>Permitted Uses:</strong> The vendor can only use your patient data for
+        the specific services you've hired them for. They can't use it to train their
+        public models, sell it, or repurpose it. If you're using an AI scribe, they can
+        transcribe and generate notes — they can't feed your patient conversations into
+        their next model update.</li>
+
+        <li><strong>Security Safeguards:</strong> The vendor must implement administrative,
+        physical, and technical safeguards to protect PHI. This typically means encryption
+        in transit and at rest, access controls, audit logging, and workforce training.
+        Many BAAs explicitly reference the HIPAA Security Rule — the vendor is held to the
+        same standard you are.</li>
+
+        <li><strong>Breach Notification:</strong> If the vendor discovers unauthorized
+        access to PHI, they must tell you — usually within 60 days, though many BAAs
+        require faster notification. They can't quietly fix a breach and hope you don't
+        notice.</li>
+
+        <li><strong>Subcontractor Chain:</strong> If the vendor uses other companies to
+        process your data (cloud hosting, analytics providers, etc.), those subcontractors
+        must also sign BAAs. This creates a chain of responsibility. No link in the chain
+        can handle PHI without being bound by the same rules.</li>
+
+        <li><strong>Termination and Data Return:</strong> When the contract ends, the
+        vendor must return or destroy all PHI. They can't keep a copy "just in case."
+        This clause matters more with AI tools than with traditional vendors — because
+        if your data was used to fine-tune a model, it may be embedded in the model's
+        weights in ways that can't be cleanly extracted.</li>
+
+        <li><strong>Audit Rights:</strong> You (or HHS) can inspect the vendor's practices
+        to verify compliance. This clause gives you the right to ask hard questions and
+        get documented answers.</li>
+      </ol>
+
+      <h2>What a BAA Does NOT Protect You From</h2>
+
+      <p>
+        Here's where people get tripped up. Having a signed BAA doesn't make you safe.
+        It makes you <em>legally covered</em>. There's a difference.
+      </p>
+
+      <ul>
+        <li><strong>A BAA doesn't mean the tool is secure.</strong> It means the vendor has
+        <em>agreed</em> to be secure. Whether they actually are is a different question.
+        The $4.75 million Montefiore Medical Center settlement in 2024 involved employees
+        accessing and selling patient data — the BAAs were in place, the breach happened
+        anyway.</li>
+
+        <li><strong>A BAA doesn't cover misuse.</strong> If you paste patient data into the
+        wrong tool (consumer ChatGPT instead of the enterprise version), the BAA on your
+        enterprise account doesn't retroactively protect that data. The data went to a
+        service without a BAA. That's a violation.</li>
+
+        <li><strong>A BAA doesn't cover features outside its scope.</strong> Anthropic's BAA
+        covers the Claude API and Enterprise chat — but explicitly does not cover Claude Code
+        (without Zero Data Retention), Cowork, MCPs/Connectors, or beta features. Using a
+        covered product doesn't mean every feature of that product is covered.</li>
+
+        <li><strong>"HIPAA compliant" on a website means nothing.</strong> Any company can
+        claim HIPAA compliance on their marketing page. The FTC has taken enforcement actions
+        against companies making false compliance claims (GoodRx, BetterHelp). The only thing
+        that matters is a signed BAA you can produce if asked.</li>
+
+        <li><strong>A BAA doesn't replace your own safeguards.</strong> You're still
+        responsible for how your team uses the tool — access controls, training, policies.
+        The BAA covers the vendor's obligations, not yours.</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <div class="callout-title">The "HIPAA Compliant" Marketing Trap</div>
+        <p class="mb-0">
+          When an AI tool's website says "HIPAA compliant," ask one question:
+          <strong>"Will you sign our BAA?"</strong> If the answer is anything other
+          than "yes, here's the process," walk away. A vendor who is genuinely HIPAA
+          compliant will have a standard BAA ready to go and won't hesitate to sign it.
+        </p>
+      </div>
+
+      <h2>What It Costs When Things Go Wrong</h2>
+
+      <p>
+        HIPAA violations aren't abstract — the penalties are real and they've increased
+        for 2026:
+      </p>
+
+      <ul>
+        <li><strong>Didn't know about the violation:</strong> $145 – $73,011 per violation</li>
+        <li><strong>Reasonable cause:</strong> Up to $73,011 per violation</li>
+        <li><strong>Willful neglect (corrected):</strong> Up to $73,011 per violation</li>
+        <li><strong>Willful neglect (not corrected):</strong> Up to $2,190,294 per violation</li>
+        <li><strong>Criminal penalties:</strong> Up to $250,000 and 10 years imprisonment for intentional misuse</li>
+      </ul>
+
+      <p>
+        These aren't hypothetical. In 2025 alone, OCR announced 10 financial penalties
+        in the first five months under their risk analysis enforcement initiative. The
+        pixel-tracking violations of 2023–2025 generated over <strong>$100 million</strong>
+        in penalties and settlements — and those were just tracking pixels on websites,
+        not AI tools processing clinical data.
+      </p>
+
+      <blockquote class="pull-quote">
+        "71% of healthcare workers are using personal AI accounts for work purposes.
+        Most public AI tools don't sign BAAs, making their use with PHI a direct violation."
+      </blockquote>
+
+      <h2>Questions to Ask Every AI Vendor</h2>
+
+      <p>
+        Before you sign up, deploy, or paste anything into an AI tool that might touch
+        patient data, ask these questions. If a vendor can't answer all of them clearly,
+        they're not ready for healthcare.
+      </p>
+
+      <ol>
+        <li>Will you sign our BAA (or provide your standard BAA for review)?</li>
+        <li>Where is data processed and stored? Which jurisdictions?</li>
+        <li>Is any data used to train or improve your models? How do we opt out?</li>
+        <li>What encryption is used in transit and at rest?</li>
+        <li>How long is data retained? Can we specify retention limits?</li>
+        <li>What audit logging is available? Who can access the logs?</li>
+        <li>What's your incident response process and breach notification timeline?</li>
+        <li>Have you completed SOC 2 Type II? Can we review the report?</li>
+        <li>Do your subcontractors also have BAAs in place?</li>
+        <li>What happens to our data if we terminate the agreement?</li>
+      </ol>
+
+      <div class="callout callout-tip">
+        <div class="callout-title">Save This List</div>
+        <p class="mb-0">
+          Copy these questions into an email template. The next time someone in your
+          practice says "we should try this AI tool," send the vendor these 10 questions
+          before anyone creates an account. It takes 5 minutes and prevents months of
+          compliance headaches.
+        </p>
+      </div>
 
       <div class="callout callout-warning">
         <div class="callout-title">Consumer vs. Enterprise — The Critical Distinction</div>
